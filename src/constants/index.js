@@ -178,7 +178,7 @@ const projects = [
       { name: "bookkeeping", color: "green-text-gradient" },
       { name: "ai-agents", color: "pink-text-gradient" },
     ],
-    image: carrent,
+    image: "/accounting-portfolio-concept.png",
     status: "In development",
     details: [
       "Working on a simulated bookkeeping environment to explore journal entries, transaction validation, and reporting.",
@@ -194,7 +194,7 @@ const projects = [
       { name: "risk-assessment", color: "green-text-gradient" },
       { name: "simulation", color: "pink-text-gradient" },
     ],
-    image: jobit,
+    image: "/cybersecurity-portfolio-concept.png",
     status: "Planning / prototype",
     details: [
       "The proposed lab models a 25-person professional-services company with Microsoft 365, Windows devices, cloud apps, and simulated security events.",
@@ -210,7 +210,7 @@ const projects = [
       { name: "supabase", color: "green-text-gradient" },
       { name: "vapi", color: "pink-text-gradient" },
     ],
-    image: tripguide,
+    image: "/felix-portfolio-concept.png",
     status: "Working prototype / class demo",
     details: [
       "Built a Vapi-powered voice assistant with server-side access-code verification and a Next.js administrative dashboard backed by Supabase.",
