@@ -230,17 +230,21 @@ const projects = [
     ],
   },
   {
-    name: "Felix",
-    description: "A personal project being documented. More information about its purpose, features, and development progress will be added here.",
+    name: "Felix — S&G Labs Assist",
+    description: "A voice-based support assistant for a medical testing laboratory, using approved knowledge to answer routine employee questions and safely escalate unsupported requests.",
     tags: [
-      { name: "personal-project", color: "blue-text-gradient" },
-      { name: "in-progress", color: "green-text-gradient" },
+      { name: "nextjs", color: "blue-text-gradient" },
+      { name: "supabase", color: "green-text-gradient" },
+      { name: "vapi", color: "pink-text-gradient" },
     ],
     image: tripguide,
-    status: "Details coming soon",
+    status: "Working prototype / class demo",
     details: [
-      "Felix is one of my ongoing projects.",
-      "A verified overview, screenshots, and working demo links will be added as the project details are finalized.",
+      "Built a Vapi-powered voice assistant with server-side access-code verification and a Next.js administrative dashboard backed by Supabase.",
+      "Employees can ask routine technical support questions; Felix searches approved knowledge and escalates when an approved answer is unavailable.",
+      "Unanswered calls can become knowledge gaps. Administrators retrieve source material, generate AI-assisted drafts, review the results, and approve publication before Felix can use the new knowledge.",
+      "Demonstrated a full workflow: a question Felix initially could not answer was escalated, developed into approved knowledge, and answered successfully on a later call.",
+      "Designed as a support prototype with human oversight; clinical advice, production readiness, and regulatory compliance are not claimed.",
     ],
   },
 ];
