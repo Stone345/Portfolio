@@ -1,4 +1,4 @@
-import React from 'react'
+import PropTypes from "prop-types";
 import { Tilt } from 'react-tilt'
 import { motion } from 'framer-motion';
 
@@ -9,18 +9,13 @@ import { SectionWrapper } from '../hoc'
 
 const ServiceCard = ({ index, title, icon }) => {
   return (
-    <Tilt className='xs:w-[250px] w-full'>
+    <Tilt options={{ max: 45, scale: 1, speed: 450 }} className='xs:w-[250px] w-full'>
       <motion.div
         variants={fadeIn("right", "spring", 0.5 * index, 0.75)}
         className="w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card"
       >
         <div
-          options={{
-            max: 45,
-            scale: 1,
-            speed:450
-          }}
-          className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center felx-col"
+          className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col"
         >
           <img src={icon} alt={title} className="w-16 h-16 object-contain" />
           <h3 className=" green-text-gradient text-[20px] font-bold text-center">{title}</h3>
@@ -42,11 +37,11 @@ const About = () => {
         variants={fadeIn("", "", 0.1, 1)}
         className='mt-4 blue-text-gradient text-[17px] max-w-3xl leading-[30px]'
       >
-        I'm a software developer with experience in TypeScript and
+        I&apos;m a software developer with experience in TypeScript and
         JavaScript, and in frameworks like React, Node.js, and
-        Three.js. I'm a quick learner and collaborate closely with clients to
+        Three.js. I&apos;m a quick learner and collaborate closely with clients to
         create efficient, scalable, and user-friendly solutions that solve
-        real-world problems. Let's work together to bring ideas to life!
+        real-world problems. Let&apos;s work together to bring ideas to life!
       </motion.p>
 
       <div className='mt-20 flex flex-wrap gap-10'>
@@ -57,4 +52,7 @@ const About = () => {
     </>
   )
 }
-export default SectionWrapper (About, "about")
+const AboutSection = SectionWrapper(About, "about");
+ServiceCard.propTypes = { index: PropTypes.number.isRequired, title: PropTypes.string.isRequired, icon: PropTypes.string.isRequired };
+
+export default AboutSection;

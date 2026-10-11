@@ -16,7 +16,7 @@ const Hero = () => {
 
         <div className="z-40">
           <h1 className={`${styles.heroHeadText} text-green-500 green-text-gradient`}>
-            Hi, I'm <span className='text-[#399852]'>Isaac</span>
+            Hi, I&apos;m <span className='text-[#399852]'>Isaac</span>
           </h1>
           <p className={`${styles.heroSubText} mt-1 green-text-gradient`}>
             I use technology to develop interfaces <br className='sm:block hidden' />
@@ -28,7 +28,7 @@ const Hero = () => {
       <ComputersCanvas />
 
       <div className='absolute xs:bottom-10 bottom-32 w-full flex justify-end items-center'>
-        <a href='#about'>
+        <a href='#about' aria-label='Scroll to About'>
           <div className='w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-end items-start p-2'>
             <motion.div
               animate={{

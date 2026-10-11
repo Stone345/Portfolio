@@ -19,9 +19,6 @@ import {
   starbucks,
   tesla,
   shopify,
-  carrent,
-  jobit,
-  tripguide,
   threejs,
 } from "../assets";
 
@@ -169,97 +166,57 @@ const experiences = [
   },
 ];
 
-const testimonials = [
-  {
-    testimonial:
-      "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-    name: "Sara Lee",
-    designation: "CFO",
-    company: "Acme Co",
-    image: "https://randomuser.me/api/portraits/women/4.jpg",
-  },
-  {
-    testimonial:
-      "I've never met a web developer who truly cares about their clients' success like Rick does.",
-    name: "Chris Brown",
-    designation: "COO",
-    company: "DEF Corp",
-    image: "https://randomuser.me/api/portraits/men/5.jpg",
-  },
-  {
-    testimonial:
-      "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-    name: "Lisa Wang",
-    designation: "CTO",
-    company: "456 Enterprises",
-    image: "https://randomuser.me/api/portraits/women/6.jpg",
-  },
-];
-
 const projects = [
   {
-    name: "Car Rent",
-    description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+    name: "AI Accounting Platform",
+    description: "An in-development accounting lab exploring AI-assisted bookkeeping, transaction review, and financial reporting using simulated business data.",
     tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "mongodb",
-        color: "green-text-gradient",
-      },
-      {
-        name: "tailwind",
-        color: "pink-text-gradient",
-      },
+      { name: "python", color: "blue-text-gradient" },
+      { name: "bookkeeping", color: "green-text-gradient" },
+      { name: "ai-agents", color: "pink-text-gradient" },
     ],
-    image: carrent,
-    source_code_link: "https://github.com/",
+    image: "/accounting-portfolio-concept.png",
+    status: "In development",
+    details: [
+      "Working on a simulated bookkeeping environment to explore journal entries, transaction validation, and reporting.",
+      "The goal is an approval-based workflow where AI proposes work and accounting rules independently check it before posting.",
+      "The repository is private; this card presents the project without exposing client or source data.",
+    ],
   },
   {
-    name: "Job IT",
-    description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+    name: "Cybersecurity Assessment Lab",
+    description: "A planned simulation of a small business environment for practicing security assessments, findings review, and remediation reporting.",
     tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "restapi",
-        color: "green-text-gradient",
-      },
-      {
-        name: "scss",
-        color: "pink-text-gradient",
-      },
+      { name: "cybersecurity", color: "blue-text-gradient" },
+      { name: "risk-assessment", color: "green-text-gradient" },
+      { name: "simulation", color: "pink-text-gradient" },
     ],
-    image: jobit,
-    source_code_link: "https://github.com/",
+    image: "/cybersecurity-portfolio-concept.png",
+    status: "Planning / prototype",
+    details: [
+      "The proposed lab models a 25-person professional-services company with Microsoft 365, Windows devices, cloud apps, and simulated security events.",
+      "Planned exercises include reviewing mock phishing events, MFA settings, vulnerability findings, and security policies.",
+      "The objective is to draft prioritized remediation recommendations and audit-friendly assessment reports without accessing real client systems.",
+    ],
   },
   {
-    name: "Trip Guide",
-    description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+    name: "Felix — S&G Labs Assist",
+    description: "A voice-based support assistant for a medical testing laboratory, using approved knowledge to answer routine employee questions and safely escalate unsupported requests.",
     tags: [
-      {
-        name: "nextjs",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "supabase",
-        color: "green-text-gradient",
-      },
-      {
-        name: "css",
-        color: "pink-text-gradient",
-      },
+      { name: "nextjs", color: "blue-text-gradient" },
+      { name: "supabase", color: "green-text-gradient" },
+      { name: "vapi", color: "pink-text-gradient" },
     ],
-    image: tripguide,
-    source_code_link: "https://github.com/",
+    image: "/felix-portfolio-concept.png",
+    status: "Working prototype / class demo",
+    details: [
+      "Built a Vapi-powered voice assistant with server-side access-code verification and a Next.js administrative dashboard backed by Supabase.",
+      "Employees can ask routine technical support questions; Felix searches approved knowledge and escalates when an approved answer is unavailable.",
+      "Unanswered calls can become knowledge gaps. Administrators retrieve source material, generate AI-assisted drafts, review the results, and approve publication before Felix can use the new knowledge.",
+      "Demonstrated a full workflow: a question Felix initially could not answer was escalated, developed into approved knowledge, and answered successfully on a later call.",
+      "Designed as a support prototype with human oversight; clinical advice, production readiness, and regulatory compliance are not claimed.",
+    ],
   },
 ];
 
-export { services, technologies, experiences, testimonials, projects };
+export { services, technologies, experiences, projects };
