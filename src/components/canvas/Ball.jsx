@@ -1,4 +1,5 @@
-import React, { Suspense } from "react";
+import PropTypes from "prop-types";
+import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import {
   Decal,
@@ -53,5 +54,8 @@ const BallCanvas = ({ icon }) => {
     </Canvas>
   );
 };
+
+Ball.propTypes = { imgUrl: PropTypes.string.isRequired };
+BallCanvas.propTypes = { icon: PropTypes.string.isRequired };
 
 export default BallCanvas;

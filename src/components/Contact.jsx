@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
@@ -86,6 +86,8 @@ const Contact = () => {
             <input
               type='text'
               name='name'
+              required
+              autoComplete='name'
               value={form.name}
               onChange={handleChange}
               placeholder="What's your name?"
@@ -97,6 +99,8 @@ const Contact = () => {
             <input
               type='email'
               name='email'
+              required
+              autoComplete='email'
               value={form.email}
               onChange={handleChange}
               placeholder="What's your email address?"
@@ -108,6 +112,7 @@ const Contact = () => {
             <textarea
               rows={7}
               name='message'
+              required
               value={form.message}
               onChange={handleChange}
               placeholder='What do you want to say?'
@@ -117,6 +122,7 @@ const Contact = () => {
 
           <button
             type='submit'
+            disabled={loading}
             className='bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary'
           >
             {loading ? "Sending..." : "Send"}
@@ -134,4 +140,5 @@ const Contact = () => {
   );
 };
 
-export default SectionWrapper(Contact, "contact");
+const ContactSection = SectionWrapper(Contact, "contact");
+export default ContactSection;

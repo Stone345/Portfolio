@@ -8,6 +8,19 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+
+# Local review evidence and synchronization preparation
+/REVIEW_RESULTS.txt
+/review-screenshots/
+/dependency-review/
+/sync-preparation/
+
+# Local credentials and private keys
+.env
+.env.*
+!.env.example
+*.pem
+*.key
 dist
 dist-ssr
 *.local

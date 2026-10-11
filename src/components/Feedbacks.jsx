@@ -41,4 +41,5 @@ const Feedbacks = () => (
   </div>
 );
 
-export default SectionWrapper(Feedbacks, "");
+const FeedbacksSection = SectionWrapper(Feedbacks, "");
+export default FeedbacksSection;

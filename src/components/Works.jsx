@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+import PropTypes from "prop-types";
 import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
 import { styles } from "../styles";
@@ -39,8 +41,8 @@ const ProjectCard = ({ index, project, onViewDetails }) => {
         </div>
         <button
           type="button"
-          onClick={() => onViewDetails(project)}
-          className="mt-5 rounded-lg bg-[#915EFF] px-4 py-2 text-white font-medium hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
+          onClick={(event) => onViewDetails(project, event.currentTarget)}
+          className="mt-5 min-h-[44px] rounded-lg bg-[#915EFF] px-4 py-2 text-white font-medium hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
           aria-label={`View details for ${name}`}
         >
           View details
@@ -50,16 +52,39 @@ const ProjectCard = ({ index, project, onViewDetails }) => {
   );
 };
 
+ProjectCard.propTypes = {
+  index: PropTypes.number.isRequired,
+  project: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    tags: PropTypes.arrayOf(PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      color: PropTypes.string.isRequired,
+    })).isRequired,
+  }).isRequired,
+  onViewDetails: PropTypes.func.isRequired,
+};
+
 const Works = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
+  const dialogRef = useRef(null);
+  const triggerRef = useRef(null);
+
   useEffect(() => {
     if (!selectedProject) return undefined;
-    const onKeyDown = (event) => {
-      if (event.key === "Escape") setSelectedProject(null);
+    const trigger = triggerRef.current;
+    const dialog = dialogRef.current;
+    const previousOverflow = document.body.style.overflow;
+    dialog.showModal();
+    dialog.querySelector("button").focus({ preventScroll: true });
+    document.body.style.overflow = "hidden";
+    return () => {
+      dialog.close();
+      document.body.style.overflow = previousOverflow;
+      trigger?.focus({ preventScroll: true });
     };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
   }, [selectedProject]);
 
   return (
@@ -85,23 +110,43 @@ const Works = () => {
             key={project.name}
             index={index}
             project={project}
-            onViewDetails={setSelectedProject}
+            onViewDetails={(project, trigger) => {
+              triggerRef.current = trigger;
+              setSelectedProject(project);
+            }}
           />
         ))}
       </div>
 
-      {selectedProject && (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4"
-          onMouseDown={(event) => {
+      {selectedProject && createPortal(
+        <dialog
+          ref={dialogRef}
+          aria-modal="true"
+          aria-labelledby="project-details-title"
+          onCancel={() => setSelectedProject(null)}
+          onKeyDown={(event) => {
+            if (event.key === "Tab") {
+              const targets = dialogRef.current.querySelectorAll("button, [tabindex='0']");
+              const first = targets[0];
+              const last = targets[targets.length - 1];
+              if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last.focus();
+              } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first.focus();
+              }
+            }
+          }}
+          className="fixed inset-0 m-0 h-full max-h-none w-full max-w-none bg-black/80 p-4 open:flex items-center justify-center"
+          onClick={(event) => {
             if (event.target === event.currentTarget) setSelectedProject(null);
           }}
         >
           <section
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="project-details-title"
-            className="max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-tertiary p-6 shadow-2xl"
+            tabIndex={0}
+            aria-label="Project details content"
+            className="max-h-[85vh] w-full max-w-2xl overflow-y-auto overscroll-contain rounded-2xl bg-tertiary p-6 shadow-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
           >
             <div className="flex items-start justify-between gap-4">
               <div>
@@ -112,10 +157,9 @@ const Works = () => {
               </div>
               <button
                 type="button"
-                autoFocus
                 onClick={() => setSelectedProject(null)}
                 aria-label="Close project details"
-                className="rounded-lg px-3 py-1 text-2xl text-white hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
+                className="min-h-[44px] min-w-[44px] shrink-0 rounded-lg px-3 py-1 text-2xl text-white hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
               >
                 ×
               </button>
@@ -130,10 +174,12 @@ const Works = () => {
               This image is an AI-generated concept illustration, not an actual screenshot of the application.
             </p>
           </section>
-        </div>
+        </dialog>,
+        document.body
       )}
     </>
   );
 };
 
-export default SectionWrapper(Works, "");
+const WorksSection = SectionWrapper(Works, "");
+export default WorksSection;

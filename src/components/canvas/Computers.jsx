@@ -1,4 +1,5 @@
-import React, { Suspense, useEffect, useState } from "react";
+import PropTypes from "prop-types";
+import { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
@@ -77,5 +78,7 @@ const ComputersCanvas = () => {
     </Canvas>
   );
 };
+
+Computers.propTypes = { isMobile: PropTypes.bool.isRequired };
 
 export default ComputersCanvas;
