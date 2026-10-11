@@ -198,67 +198,50 @@ const testimonials = [
 
 const projects = [
   {
-    name: "Car Rent",
-    description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+    name: "AI Accounting Platform",
+    description: "An in-development accounting lab exploring AI-assisted bookkeeping, transaction review, and financial reporting using simulated business data.",
     tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "mongodb",
-        color: "green-text-gradient",
-      },
-      {
-        name: "tailwind",
-        color: "pink-text-gradient",
-      },
+      { name: "python", color: "blue-text-gradient" },
+      { name: "bookkeeping", color: "green-text-gradient" },
+      { name: "ai-agents", color: "pink-text-gradient" },
     ],
     image: carrent,
-    source_code_link: "https://github.com/",
+    status: "In development",
+    details: [
+      "Working on a simulated bookkeeping environment to explore journal entries, transaction validation, and reporting.",
+      "The goal is an approval-based workflow where AI proposes work and accounting rules independently check it before posting.",
+      "The repository is private; this card presents the project without exposing client or source data.",
+    ],
   },
   {
-    name: "Job IT",
-    description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+    name: "Cybersecurity Assessment Lab",
+    description: "A planned simulation of a small business environment for practicing security assessments, findings review, and remediation reporting.",
     tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "restapi",
-        color: "green-text-gradient",
-      },
-      {
-        name: "scss",
-        color: "pink-text-gradient",
-      },
+      { name: "cybersecurity", color: "blue-text-gradient" },
+      { name: "risk-assessment", color: "green-text-gradient" },
+      { name: "simulation", color: "pink-text-gradient" },
     ],
     image: jobit,
-    source_code_link: "https://github.com/",
+    status: "Planning / prototype",
+    details: [
+      "The proposed lab models a 25-person professional-services company with Microsoft 365, Windows devices, cloud apps, and simulated security events.",
+      "Planned exercises include reviewing mock phishing events, MFA settings, vulnerability findings, and security policies.",
+      "The objective is to draft prioritized remediation recommendations and audit-friendly assessment reports without accessing real client systems.",
+    ],
   },
   {
-    name: "Trip Guide",
-    description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+    name: "Felix",
+    description: "A personal project being documented. More information about its purpose, features, and development progress will be added here.",
     tags: [
-      {
-        name: "nextjs",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "supabase",
-        color: "green-text-gradient",
-      },
-      {
-        name: "css",
-        color: "pink-text-gradient",
-      },
+      { name: "personal-project", color: "blue-text-gradient" },
+      { name: "in-progress", color: "green-text-gradient" },
     ],
     image: tripguide,
-    source_code_link: "https://github.com/",
+    status: "Details coming soon",
+    details: [
+      "Felix is one of my ongoing projects.",
+      "A verified overview, screenshots, and working demo links will be added as the project details are finalized.",
+    ],
   },
 ];
 
