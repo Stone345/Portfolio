@@ -8,7 +8,7 @@ import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
 
 const ProjectCard = ({ index, project, onViewDetails }) => {
-  const { name, description, tags } = project;
+  const { name, description, tags, image } = project;
   return (
     <motion.div variants={fadeIn("up", "spring", 0.5 * index, 0.75)}>
       <Tilt
@@ -16,14 +16,15 @@ const ProjectCard = ({ index, project, onViewDetails }) => {
         className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
       >
         <div className="relative w-full h-[230px]">
-          <div
-            className="flex h-full w-full flex-col items-center justify-center rounded-2xl border border-white/10 bg-black-200 px-5 text-center"
-            role="img"
-            aria-label={`Screenshot placeholder for ${name}`}
-          >
-            <span className="text-white text-[20px] font-semibold">{name}</span>
-            <span className="mt-3 text-secondary text-[13px]">Project screenshot coming soon</span>
-          </div>
+          <img
+            src={image}
+            alt={`AI-generated concept illustration for ${name}; not an actual application screenshot`}
+            className="h-full w-full rounded-2xl object-cover"
+            loading="lazy"
+          />
+          <p className="absolute bottom-2 left-2 rounded bg-black/80 px-2 py-1 text-[11px] text-white">
+            AI-generated concept
+          </p>
         </div>
         <div className="mt-5">
           <h3 className="text-white font-bold text-[24px]">{name}</h3>
@@ -126,7 +127,7 @@ const Works = () => {
               ))}
             </ul>
             <p className="mt-5 text-sm text-[#aaa6c3]">
-              Project screenshots will be added when available.
+              This image is an AI-generated concept illustration, not an actual screenshot of the application.
             </p>
           </section>
         </div>
