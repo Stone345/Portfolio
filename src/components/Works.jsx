@@ -8,7 +8,7 @@ import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
 
 const ProjectCard = ({ index, project, onViewDetails }) => {
-  const { name, description, tags, image } = project;
+  const { name, description, tags } = project;
   return (
     <motion.div variants={fadeIn("up", "spring", 0.5 * index, 0.75)}>
       <Tilt
@@ -16,7 +16,14 @@ const ProjectCard = ({ index, project, onViewDetails }) => {
         className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
       >
         <div className="relative w-full h-[230px]">
-          <img src={image} alt={name} className="w-full h-full object-cover rounded-2xl" />
+          <div
+            className="flex h-full w-full flex-col items-center justify-center rounded-2xl border border-white/10 bg-black-200 px-5 text-center"
+            role="img"
+            aria-label={`Screenshot placeholder for ${name}`}
+          >
+            <span className="text-white text-[20px] font-semibold">{name}</span>
+            <span className="mt-3 text-secondary text-[13px]">Project screenshot coming soon</span>
+          </div>
         </div>
         <div className="mt-5">
           <h3 className="text-white font-bold text-[24px]">{name}</h3>
@@ -119,7 +126,7 @@ const Works = () => {
               ))}
             </ul>
             <p className="mt-5 text-sm text-[#aaa6c3]">
-              Project images are existing portfolio placeholders, not screenshots of these applications.
+              Project screenshots will be added when available.
             </p>
           </section>
         </div>
